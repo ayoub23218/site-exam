@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between px-[5%] py-4 relative">
-      <div className="text-2xl font-bold text-[#0056d2]">Wikiwish</div>
+      <div className="text-2xl font-bold text-[#0056d2]">Booking</div>
 
       <Hamburger onClick={() => setIsOpen(!isOpen)} />
 
@@ -54,9 +54,8 @@ export default function Navbar() {
         `}
         id="nav-links"
       >
-        <NavLink href="/">Acceuil</NavLink>
-        <NavLink href="/Wiki/New">New</NavLink>
-        <NavLink href="/Wiki/edit">Modifier/Supprimer</NavLink>
+        <NavLink href="/">Ajout réservation</NavLink>
+        <NavLink href="/Booking">Booking</NavLink>
       </ul>
     </nav>
   );

@@ -1,45 +1,13 @@
-import Link from "next/link";
-import { getWikis } from "@/lib/wikiactions";
-import WikiCard from "@/Components/WikiCard";
+import WikiForm from "@/Components/WikiForm";
+import { createReservation } from "@/lib/reservationactions";
 
-export default async function WikiHome() {
-  const wikis = await getWikis();
-
+export default function NewWikiPage() {
   return (
-    <main className="min-h-screen bg-slate-50 p-8 mt-20">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex justify-between items-end mb-8 border-b pb-4">
-          <div>
-            <h1 className="text-4xl font-serif font-bold text-slate-900">
-              L'Encyclopédie
-            </h1>
-            <p className="text-slate-500 mt-2">
-              Le savoir partagé, accessible à tous.
-            </p>
-          </div>
-          <Link
-            href="/Wiki/New"
-            className="bg-black text-white px-4 py-2 rounded hover:bg-slate-800 transition"
-          >
-            + Créer un article
-          </Link>
-        </div>
+    <main className="min-h-screen bg-slate-50 p-8 flex justify-center mt-15">
+      <div className="w-full max-w-2xl bg-white p-8 rounded-xl shadow-lg">
+        <h1 className="text-2xl font-bold mb-6">Nouvelle réservation</h1>
 
-        <div className="grid gap-6">
-          {wikis.map((wiki) => (
-            <WikiCard
-              key={wiki.id}
-              wiki={wiki}
-              href={`/Wiki/Page/${wiki.id}`}
-            />
-          ))}
-
-          {wikis.length === 0 && (
-            <div className="text-center py-20 text-slate-400">
-              L'encyclopédie est vide pour le moment...
-            </div>
-          )}
-        </div>
+        <WikiForm action={createReservation} cancelHref="/" />
       </div>
     </main>
   );

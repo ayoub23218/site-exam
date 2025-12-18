@@ -2,23 +2,22 @@ import Link from "next/link";
 import Input from "./Input";
 import TextArea from "./TextArea";
 
-type WikiData = {
+type ReservationData = {
   id?: string;
-  title?: string;
-  category?: string;
-  imageUrl?: string | null;
-  summary?: string;
-  author?: string;
-  content?: string;
+  name?: string;
+  numtel?: string;
+  number?: number;
+  heure?: string;
+  supplementaire?: string;
 };
 
-type WikiFormProps = {
+type ReservationFormProps = {
   action: (formData: FormData) => Promise<void>;
-  initialData?: WikiData;
+  initialData?: ReservationData;
   cancelHref: string;
 };
 
-export default function WikiForm(props: WikiFormProps) {
+export default function WikiForm(props: ReservationFormProps) {
   const isEdit = !!props.initialData;
 
   return (
@@ -28,53 +27,43 @@ export default function WikiForm(props: WikiFormProps) {
       )}
 
       <Input
-        label="Titre"
-        name="title"
-        defaultValue={props.initialData?.title}
+        label="Name"
+        name="name"
+        defaultValue={props.initialData?.name}
         required
-        placeholder="Ex: La Pomme de Terre"
+        placeholder="Ex: Jean Du-pont"
         className={isEdit ? "font-serif text-lg" : ""}
       />
       <Input
-        label="Auteur"
-        name="author"
-        defaultValue={props.initialData?.author}
+        label="Numero de téléphone"
+        name="numtel"
+        defaultValue={props.initialData?.numtel}
         required
-        placeholder="Nom de l'auteur"
+        placeholder="Votre numéro"
       />
 
       <Input
-        label="Catégorie"
-        name="category"
-        defaultValue={props.initialData?.category}
+        label="Le nombre de personnes"
+        name="number"
+        defaultValue={props.initialData?.number}
         required
-        placeholder="Ex: Botanique"
+        placeholder="Combien serez vous"
       />
 
       <Input
-        label="URL Image"
-        name="imageUrl"
-        defaultValue={props.initialData?.imageUrl || ""}
-        placeholder="https://..."
+        label="Lheure (jj/dd/yyyy)"
+        name="heure"
+        defaultValue={props.initialData?.heure}
+        required
+        placeholder="Combien serez vous"
       />
 
       <TextArea
-        label="Summary"
-        name="summary"
-        defaultValue={props.initialData?.summary}
-        required
+        label="Supplementaire"
+        name="supplementaire"
+        defaultValue={props.initialData?.supplementaire}
         rows={3}
-        placeholder="Bref aperçu..."
-        helperText="Sera affiché en haut de l'article et dans la liste."
-      />
-
-      <TextArea
-        label="Contenu"
-        name="content"
-        defaultValue={props.initialData?.content}
-        required
-        rows={10}
-        placeholder="Racontez tout..."
+        placeholder="Commentaire à ajouter"
       />
 
       <div className="flex justify-between items-center pt-4 border-t">

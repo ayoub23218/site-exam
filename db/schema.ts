@@ -1,12 +1,10 @@
-import { pgTable, uuid, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, integer } from "drizzle-orm/pg-core";
 
-export const wikiTable = pgTable("wiki", {
+export const reservationTable = pgTable("reservation", {
   id: uuid("id").defaultRandom().primaryKey(),
-  title: text("title").unique().notNull(),
-  summary: text("summary").notNull(), 
-  content: text("content").notNull(), 
-  category: text("category").notNull(),
-  author: text("author").notNull(),
-  imageUrl: text("image_url"),
-  lastUpdated: timestamp("last_updated").defaultNow(),
+  name: text("name").unique().notNull(),
+  numtel: text("numtel").notNull(), 
+  number: integer("number").notNull(), 
+  heure: text("heure").notNull(),
+  supplementaire: text("supplementaire").notNull(),
 });
