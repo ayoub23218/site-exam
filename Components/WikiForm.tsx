@@ -8,6 +8,7 @@ type WikiData = {
   category?: string;
   imageUrl?: string | null;
   summary?: string;
+  author?: string;
   content?: string;
 };
 
@@ -33,6 +34,13 @@ export default function WikiForm(props: WikiFormProps) {
         required
         placeholder="Ex: La Pomme de Terre"
         className={isEdit ? "font-serif text-lg" : ""}
+      />
+      <Input
+        label="Auteur"
+        name="author"
+        defaultValue={props.initialData?.author}
+        required
+        placeholder="Nom de l'auteur"
       />
 
       <Input

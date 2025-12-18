@@ -15,6 +15,7 @@ export async function createWiki(formData: FormData) {
     category: String(formData.get("category")),
     summary: String(formData.get("summary")),
     content: String(formData.get("content")),
+    author: String(formData.get("author")),
     imageUrl: String(formData.get("imageUrl")) || null,
   });
   
@@ -31,6 +32,7 @@ export async function editWiki(formData: FormData) {
       category: String(formData.get("category")),
       summary: String(formData.get("summary")),
       content: String(formData.get("content")),
+      author: String(formData.get("author")),
       imageUrl: String(formData.get("imageUrl")) || null,
       lastUpdated: new Date(),
     })

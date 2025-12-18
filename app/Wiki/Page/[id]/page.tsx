@@ -33,6 +33,12 @@ export default async function WikiPage({
             <span className="bg-slate-100 px-2 py-1 rounded">
               Catégorie : {article.category}
             </span>
+            <span className="hidden md:inline text-slate-300">•</span>
+            <span className="font-medium text-slate-600 italic">
+              Écrit par {article.author}
+            </span>
+
+            <span className="hidden md:inline text-slate-300">•</span>
             <span>
               Mis à jour le {article.lastUpdated?.toLocaleDateString()}
             </span>

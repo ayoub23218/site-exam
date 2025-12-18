@@ -6,6 +6,7 @@ type Wiki = {
   title: string;
   category: string;
   summary: string;
+  author: string;
   imageUrl?: string | null;
 };
 
@@ -19,9 +20,15 @@ export default function WikiCard({ wiki, href, showDelete }: WikiCardProps) {
   const cardContent = (
     <div className="flex flex-row p-6 gap-6 h-full items-start">
       <div className="flex-1 flex flex-col justify-center min-w-0">
-        <span className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
-          {wiki.category}
-        </span>
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+            {wiki.category}
+          </span>
+          <span className="text-xs text-slate-400">•</span>
+          <span className="text-xs font-medium text-slate-500 italic">
+            Par {wiki.author}
+          </span>
+        </div>
         <h2 className="text-2xl font-bold text-slate-800 group-hover:text-blue-700 transition mb-2 break-words">
           {wiki.title}
         </h2>
