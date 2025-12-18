@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getWikis } from "@/lib/wikiactions";
 import WikiCard from "@/Components/WikiCard";
 
@@ -13,16 +12,8 @@ export default async function WikiHome() {
             <h1 className="text-4xl font-serif font-bold text-slate-900">
               L'Encyclopédie
             </h1>
-            <p className="text-slate-500 mt-2">
-              Le savoir partagé, accessible à tous.
-            </p>
+            <p className="text-slate-500 mt-2">Ici modifier ou supprimer</p>
           </div>
-          <Link
-            href="/Wiki/New"
-            className="bg-black text-white px-4 py-2 rounded hover:bg-slate-800 transition"
-          >
-            + Créer un article
-          </Link>
         </div>
 
         <div className="grid gap-6">
@@ -30,7 +21,8 @@ export default async function WikiHome() {
             <WikiCard
               key={wiki.id}
               wiki={wiki}
-              href={`/Wiki/Page/${wiki.id}`}
+              href={`/Wiki/edit/${wiki.id}`}
+              showDelete={true}
             />
           ))}
 

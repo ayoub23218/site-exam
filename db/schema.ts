@@ -1,7 +1,11 @@
-import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core'
+import { pgTable, uuid, varchar, text, timestamp } from "drizzle-orm/pg-core";
 
-export const tasksTable = pgTable('tasks', {
-  id: uuid().defaultRandom().primaryKey(),
-  title: text().notNull(),
-  done: boolean().default(false).notNull(),
-})
+export const wikiTable = pgTable("wiki", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  title: text("title").unique().notNull(),
+  summary: text("summary").notNull(), 
+  content: text("content").notNull(), 
+  category: text("category").notNull(),
+  imageUrl: text("image_url"),
+  lastUpdated: timestamp("last_updated").defaultNow(),
+});
