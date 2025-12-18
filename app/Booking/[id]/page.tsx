@@ -31,17 +31,15 @@ export default async function EditWikiPage({
           initialData={page}
           cancelHref={`/Booking`}
         />
-        <form
-          action={deleteReservation}
-          className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
+
+        <form action={deleteReservation}>
           <input type="hidden" name="id" value={id} />
           <button
             type="submit"
-            className="bg-white/90 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full p-1.5 shadow-sm border border-slate-200 transition"
-            title="Supprimer cet article"
+            className="text-gray-400 hover:text-red-600 p-1 hover:bg-red-50 rounded transition leading-none"
+            title="Supprimer"
           >
-            ✕
+            supprimer
           </button>
         </form>
       </div>
